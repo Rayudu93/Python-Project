@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ object.title }}</h2>
+<p><strong>Company:</strong> {{ object.company }}</p>
+<p><strong>Location:</strong> {{ object.location }}</p>
+<p><strong>Salary:</strong> ₹{{ object.salary }}</p>
+<p>{{ object.description }}</p>
+
+<a href="{% url 'job_update' object.pk %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'job_delete' object.pk %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'job_list' %}" class="btn btn-secondary">Back</a>
+{% endblock %}
+
+</body>
+</html>

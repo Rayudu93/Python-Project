@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2>All Patients</h2>
+<a href="{% url 'patient_add' %}" class="btn btn-primary mb-3">Add Patient</a>
+<ul class="list-group">
+    {% for patient in object_list %}
+    <li class="list-group-item">
+        <a href="{% url 'patient_detail' patient.pk %}">{{ patient.name }}</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No patients found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+</body>
+</html>

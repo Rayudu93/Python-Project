@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ object.name }}</h2>
+<p><strong>Age:</strong> {{ object.age }}</p>
+<p><strong>Contact:</strong> {{ object.contact }}</p>
+<p><strong>Diagnosis:</strong> {{ object.diagnosis }}</p>
+<p><strong>Admitted on:</strong> {{ object.admission_date }}</p>
+
+<a href="{% url 'patient_update' object.pk %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'patient_delete' object.pk %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'patient_list' %}" class="btn btn-secondary">Back</a>
+{% endblock %}
+
+</body>
+</html>

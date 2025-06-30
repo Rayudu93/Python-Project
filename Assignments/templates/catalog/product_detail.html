@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ object.name }}</h2>
+<p><strong>Price:</strong> ₹{{ object.price }}</p>
+<p><strong>Stock:</strong> {{ object.stock_quantity }}</p>
+<p>{{ object.description }}</p>
+
+<a href="{% url 'product_update' object.pk %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'product_delete' object.pk %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'product_list' %}" class="btn btn-secondary">Back</a>
+{% endblock %}
+
+</body>
+</html>

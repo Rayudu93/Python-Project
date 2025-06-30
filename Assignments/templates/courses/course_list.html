@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2>All Courses</h2>
+<a href="{% url 'course_add' %}" class="btn btn-primary mb-3">Add Course</a>
+<ul class="list-group">
+    {% for course in object_list %}
+    <li class="list-group-item">
+        <a href="{% url 'course_detail' course.pk %}">{{ course.title }}</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No courses available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+s
+</body>
+</html>
